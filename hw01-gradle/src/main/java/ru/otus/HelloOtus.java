@@ -17,4 +17,3 @@ public class HelloOtus {
         System.out.println(Lists.reverse(example));
     }
 }
-

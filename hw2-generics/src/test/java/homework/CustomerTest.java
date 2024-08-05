@@ -1,12 +1,12 @@
 package homework;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CustomerTest {
 
@@ -81,9 +81,8 @@ class CustomerTest {
         Map.Entry<Customer, String> middleScore = customerService.getNext(new Customer(10, "Key", 20));
         // then
         assertThat(middleScore.getKey()).isEqualTo(customer1);
-        //todo: не поняла здесь, как должно работать. Ведь если middleScore.scores равен 10000, то здесь customerService.getNext(customer1) вернет null
-        middleScore.getKey().setScores(100); //setScores(10000);
-        middleScore.getKey().setName("Vasy");
+        middleScore.getKey().setScores(10000);
+        middleScore.getKey().setName("Vasyl");
 
         // when
         Map.Entry<Customer, String> biggestScore = customerService.getNext(customer1);
@@ -115,12 +114,12 @@ class CustomerTest {
         smallestScore.getKey().setName("Vasyl");
 
         // then
-        //todo: здесь я не совсем поняла, нужно запретить менять Name в smallestScore или нужно так изменить реализацию, чтобы при изменении Name в smallestScore менялось Name в customer2?
+        //todo: здесь я не совсем поняла, нужно так изменить реализацию, чтобы при изменении Name в smallestScore менялось Name в customer2?
         assertThat(customerService.getSmallest().getKey().getName()).isEqualTo(customer2.getName());
     }
 
     @Test
-    @Disabled("надо удалить") // надо удалить
+    //@Disabled("надо удалить") // надо удалить
     @DisplayName("Возвращание в обратном порядке")
     void reverseOrderTest() {
         // given

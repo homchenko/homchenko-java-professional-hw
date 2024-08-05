@@ -1,26 +1,17 @@
 package homework;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-
 //@SuppressWarnings({"java:S1135"}) // при выполнении ДЗ эту аннотацию надо удалить
-public class Customer implements Comparable<Customer>{
-    private long id;
+public class Customer {
+    private final long id;
     private String name;
     private long scores;
-
-    private static final Set<Long> existingIds = new HashSet<>();
-    private static long nextId;
 
     // todo: 1. в этом классе надо исправить ошибки
 
     public Customer(long id, String name, long scores) {
-        this.id = id; //generateUniqueId(id);
+        this.id = id;
         this.name = name;
         this.scores = scores;
-
-        existingIds.add(this.id);
     }
 
     public long getId() {
@@ -41,17 +32,6 @@ public class Customer implements Comparable<Customer>{
 
     public void setScores(long scores) {
         this.scores = scores;
-    }
-
-    private static long generateUniqueId(Long id) {
-        if (!existingIds.contains(id)) {
-            return id;
-        }
-        nextId = id;
-        while (existingIds.contains(nextId)) {
-            nextId++;
-        }
-        return nextId;
     }
 
     @Override
@@ -78,11 +58,6 @@ public class Customer implements Comparable<Customer>{
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + Long.hashCode(scores);
         return result;*/
-        return  Long.hashCode(id);
-    }
-
-    @Override
-    public int compareTo(Customer c) {
-        return Long.compare(this.scores, c.scores);
+        return Long.hashCode(id);
     }
 }

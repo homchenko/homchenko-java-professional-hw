@@ -1,5 +1,6 @@
 package homework;
 
+import java.util.AbstractMap;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -13,7 +14,11 @@ public class CustomerService {
     private final TreeMap<Customer, String> customers = new TreeMap<>(customerComparator);
 
     public Map.Entry<Customer, String> getSmallest() {
-        return customers.firstEntry();
+        Map.Entry<Customer, String> entry = customers.firstEntry();
+        if (entry == null) {
+            return null;
+        }
+        return new AbstractMap.SimpleEntry<>(entry.getKey().clone(), entry.getValue());
     }
 
     public Map.Entry<Customer, String> getNext(Customer customer) {
@@ -21,7 +26,12 @@ public class CustomerService {
         if (nextEntry == null && !customers.containsKey(customer)) {
             return null;
         }
-        return (nextEntry != null) ? nextEntry : customers.lastEntry();
+        if (nextEntry != null) {
+            return new AbstractMap.SimpleEntry<>(nextEntry.getKey().clone(), nextEntry.getValue());
+        } else {
+            Map.Entry<Customer, String> lastEntry = customers.lastEntry();
+            return lastEntry != null ? new AbstractMap.SimpleEntry<>(lastEntry.getKey().clone(), lastEntry.getValue()) : null;
+        }
     }
 
     public void add(Customer customer, String data) {

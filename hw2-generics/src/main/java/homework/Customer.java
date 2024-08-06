@@ -1,7 +1,7 @@
 package homework;
 
 //@SuppressWarnings({"java:S1135"}) // при выполнении ДЗ эту аннотацию надо удалить
-public class Customer {
+public class Customer implements Cloneable {
     private final long id;
     private String name;
     private long scores;
@@ -59,5 +59,10 @@ public class Customer {
         result = 31 * result + Long.hashCode(scores);
         return result;*/
         return Long.hashCode(id);
+    }
+
+    @Override
+    protected Customer clone() {
+        return new Customer(this.id, this.name, this.scores);
     }
 }

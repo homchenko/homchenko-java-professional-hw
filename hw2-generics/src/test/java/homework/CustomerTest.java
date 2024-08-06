@@ -114,7 +114,6 @@ class CustomerTest {
         smallestScore.getKey().setName("Vasyl");
 
         // then
-        //todo: здесь я не совсем поняла, нужно так изменить реализацию, чтобы при изменении Name в smallestScore менялось Name в customer2?
         assertThat(customerService.getSmallest().getKey().getName()).isEqualTo(customer2.getName());
     }
 

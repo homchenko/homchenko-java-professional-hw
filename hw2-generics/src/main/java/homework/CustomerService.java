@@ -29,8 +29,7 @@ public class CustomerService {
         if (nextEntry != null) {
             return new AbstractMap.SimpleEntry<>(nextEntry.getKey().clone(), nextEntry.getValue());
         } else {
-            Map.Entry<Customer, String> lastEntry = customers.lastEntry();
-            return lastEntry != null ? new AbstractMap.SimpleEntry<>(lastEntry.getKey().clone(), lastEntry.getValue()) : null;
+            return customers.lastEntry();
         }
     }
 

@@ -1,4 +1,4 @@
-class MyTests {
+public class MyTests {
 
     @Before
     public void setUp() {
@@ -8,14 +8,12 @@ class MyTests {
     @Test
     public void test1() {
         System.out.println("Running test 1...");
-        // Simulate a test failure
-        if (1 == 1) throw new RuntimeException("Test 1 failed");
+        if (1 == 1) throw new RuntimeException("Test 1 failed"); // Simulate a test failure
     }
 
     @Test
     public void test2() {
-        System.out.println("Running test 2...");
-        // Simulate a successful test
+        System.out.println("Running test 2..."); // Simulate a successful test
     }
 
     @After

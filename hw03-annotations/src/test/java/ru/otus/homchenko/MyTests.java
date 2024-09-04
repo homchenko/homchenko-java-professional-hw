@@ -1,3 +1,5 @@
+package ru.otus.homchenko;
+
 public class MyTests {
 
     @Before

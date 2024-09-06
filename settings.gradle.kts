@@ -22,3 +22,5 @@ pluginManagement {
     }
 }
 include("hw01-gradle")
+include("hw2-generics")
+include("hw03-annotations")

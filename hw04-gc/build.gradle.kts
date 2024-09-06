@@ -16,7 +16,7 @@ tasks {
         archiveVersion.set("0.1")
         archiveClassifier.set("")
         manifest {
-            attributes(mapOf("Main-Class" to "ru.otus.CalcDemo"))
+            attributes(mapOf("Main-Class" to "ru.outs.homchenko.CalcDemo"))
         }
     }
 
